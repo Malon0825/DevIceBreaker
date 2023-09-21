@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .roll-animation {
+    animation: roll 2s linear;
+  }
+
+  @keyframes roll {
+    0% {
+      transform: translateX(-350%) translateY(150%) rotate(-360deg) scale(0);
+    }
+    100% {
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+  }
+
+  .card {
+    width: 290px;
+    height: 254px;
+    background: #07182E;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  
+  .card div, button {
+    z-index: 1;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    background-image: linear-gradient(180deg, rgb(0, 255, 51), rgb(255, 0, 0));
+    height: 200%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+  }
+  
+  @keyframes rotBGimg {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card::after {
+    content: '';
+    position: absolute;
+    background: #48311F;
+    ;
+    inset: 5px;
+    border-radius: 15px;
+  }  
+   
+
+  .Btn {
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right,#48311F,#DAA980,#77530a,#91AB44,#DAA980,#91AB44);
+    background-size: 250%;
+    background-position: left;
+    color: #91AB44;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: 1s;
+    overflow: hidden;
+  }
+  
+  .Btn::before {
+    position: absolute;
+    content: "Proceed";
+    color: #91AB44;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+    height: 90%;
+    border-radius: 8px;
+    transition-duration: 1s;
+    background-color: #48311F;
+    background-size: 200%;
+  }
+  
+  .Btn:hover {
+    background-position: right;
+    transition-duration: 1s;
+  }
+  
+  .Btn:hover::before {
+    background-position: right;
+    transition-duration: 1s;
+  }
+  
+  .Btn:active {
+    transform: scale(0.95);
+  }
+
+
+
+  .animation-shining {
+    animation: blue-shining  5s ease-in-out infinite;
+  }
+
+  @keyframes blue-shining {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+
+
+  
+  
+}
+
+.no-spinners::-webkit-inner-spin-button, 
+.no-spinners::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
