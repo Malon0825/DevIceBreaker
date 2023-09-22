@@ -5,6 +5,10 @@
 
 @layer components {
 
+  .user-card {
+    @apply bg-third bg-opacity-80 border-2 border-text w-[420px] h-[200px] rounded-xl overflow-hidden
+  }
+
   .roll-animation {
     animation: roll 2s linear;
   }
@@ -130,7 +134,47 @@
   }
 
 
+  .fade-in {
+    opacity: 0;
+    animation: fade-In 2s ease-in-out forwards;
+  }
   
+  @keyframes fade-In {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+
+  .no-spinners::-webkit-inner-spin-button, 
+  .no-spinners::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+      border-radius: 100vh;
+      background: none;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+      background: #48311F;
+      border-radius: 100vh;
+      border: 2px solid #DAA980;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #29445d;
+  }
   
 }
 

@@ -6,6 +6,7 @@ import { AuthProvider } from './Context/Auth'
 import PrivateRoute from './context/PrivateRoute.jsx'
 import App from './components/App'
 import Home from './components/Home'
+import Parent from './components/Parent'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -17,10 +18,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                   <Switch>
 
-                        <Route path="/" element={<App/>} />\
-
-                        <Route path="/twotruthandaliehome" element={<Home/>} />\
+                    <Route path="/" element={<Parent/>} />\
+                    
 {/* 
+                    <Route path="/" element={<App/>} />\
+                    <Route path="/parent" element={<Parent/>} />\
+
+                    <Route path="/twotruthandaliehome" element={<Home/>} />\
+
                         <Route path='/home' element={<PrivateRoute/>}>
                                 <Route exact path='/home' element={<Home/>}/>
                         </Route>  */}

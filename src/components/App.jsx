@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {bg, merry, key, scroll} from "../assets"
-import { getFirestore, collection, query, updateDoc, where, getDocs, getDoc, doc, onSnapshot } from 'firebase/firestore';
+import { getFirestore, collection, query, updateDoc, where, getDocs, getDoc, addDoc, onSnapshot } from 'firebase/firestore';
 
 
-const App = () => {
+const App = (props) => {
     
     const db = getFirestore()
     const userColRef = collection(db, 'users')
@@ -31,12 +31,17 @@ const App = () => {
             setUserId(doc.id, " => ", doc.data());
         });
         }
+
     }
+
+    const { toggleUser, currentUserId } = props;
 
     useEffect(() => {
 
         if (userId != null) {
-            navigate("/twotruthandaliehome")
+            
+            currentUserId(userId)
+            toggleUser(false)
         }
 
     }, [userId])
@@ -76,7 +81,7 @@ const App = () => {
                             ref={username}/>
 
                     <label htmlFor="pass" className="text-2xl text-text mt-10">What's the key?</label>
-                    <input className=" bg-transparent border-2 border-secondary rounded-lg text-text text-2xl p-4" type="password" id="pass"
+                    <input className=" bg-transparent border-2 border-secondary rounded-lg text-text text-2xl p-4" type="text" id="pass"
                             ref={userpass} 
                             onKeyDown={event => {
                                 if (event.key === 'Enter') 
