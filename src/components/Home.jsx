@@ -4,6 +4,7 @@ import {bg_blur, merry, key, scroll} from "../assets"
 import { getFirestore, collection, query, updateDoc, where, getDocs, getDoc, addDoc, onSnapshot } from 'firebase/firestore';
 import Answers from './Answers';
 
+
 const Home = (props) => {
 
     const db = getFirestore()
@@ -80,7 +81,8 @@ const Home = (props) => {
 					user_id: currentUserId,
 					truth_one: truthOneValue,
 					truth_two: truthTwoValue,
-                    lie_value: lieValue
+                    lie_value: lieValue,
+                    guess_done: false
 				});
 			} catch (err) {
 				alert(err)
@@ -92,6 +94,26 @@ const Home = (props) => {
         
         setIsLoading(false)
     }
+
+
+    useEffect(() => {
+
+        async function getUser(){
+
+            const finishedAnswer = query(answersColRef, where("user_id", "==", currentUserId));
+
+            const querySnapshot = await getDocs(finishedAnswer);
+
+            if (querySnapshot.size === 0) {
+                
+            } else {
+                setToggleAnswers(false)
+            }
+            
+        }
+        getUser()
+    }, [currentUserId])
+    
 
 
     return (
@@ -148,7 +170,9 @@ const Home = (props) => {
 			</div>
 
             <div className={`${toggleAnswers? 'hidden' : 'flex'} z-30`}>
-                <Answers userId={currentUserId}/>
+
+                <Answers userId={currentUserId} doneAnswer={true}/>
+                
             </div>
 
 

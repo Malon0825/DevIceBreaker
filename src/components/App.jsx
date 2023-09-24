@@ -57,7 +57,7 @@ const App = (props) => {
 			</div>
 
 			<div className={`${toggleScroll? "hidden" : "flex"} absolute bottom-[50px] left-[50px] w-[120px] h-[120px] opacity-60`}>
-					<img className="" src={key} alt="" onClick={() => setToggleScroll(true)}/>					
+					<img className="key-fade-in" src={key} alt="" onClick={() => setToggleScroll(true)}/>					
 			</div>
 				
 			<div className={`${toggleScroll? "flex" : "hidden"} absolute w-[300px] z-20 h-[300px] top-10 right-52 roll-animation items-center justify-center`}>

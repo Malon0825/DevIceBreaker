@@ -175,6 +175,19 @@
   .scrollbar::-webkit-scrollbar-thumb:hover {
       background: #29445d;
   }
+
+
+  .key-fade-in {
+    opacity: 0;
+    animation: fade-In 2s ease-in-out forwards;
+    animation-delay: 10s;
+  }
+
+  .card-fade-in {
+    opacity: 0;
+    animation: fade-In 2s ease-in-out forwards;
+    animation-delay: 2s;
+  }
   
 }
 
